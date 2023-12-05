@@ -1,140 +1,44 @@
 <!DOCTYPE html>
-<!-- saved from url=(0027)http://202.90.199.209/rseew -->
 <html lang="en-US">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/bmkg.png" />
 
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./css/css2" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/leaflet.css" />
-    <script src="./js/leaflet.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <style>
+      html {
+        font-size: 80%;
+      }
+    </style>
+
     <title>RS Earthquake Early Warning System</title>
   </head>
 
   <body cz-shortcut-listen="true">
     <div class="container-fluid">
-      <div
-        class="row leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
-        id="map"
-        style="height: 100vh; position: relative"
-        tabindex="0"
-      >
-        <div class="col-fluid position-absolute" style="z-index: 888">
-          <div
-            class="parameter col-3 top-0 start-0 mt-3 ms-3"
-            style="position: absolute"
-          >
-            <div class="card" style="width: 18rem">
-              <h5 class="text-center pt-2">15 Mei 2023, 16:20:00</h5>
-              <div
-                class="card-header text-center fs-6 fw-bold"
-                style="
-                  border-bottom: none;
-                  background-color: #c1272d;
-                  color: white;
-                "
-              >
-                PARAMETER GEMPABUMI
-              </div>
-              <div class="card-body">
-                <div class="row pb-1">
-                  <div class="col-sm-auto">
-                    <img width="40" src="./images/heartbeat.png" />
-                  </div>
-                  <div class="col">
-                    <ul class="list-group" style="width: 110px">
-                      <li
-                        class="list-group-item border-0 fw-bold text-center p-0"
-                        style="background-color: #c1272d; color: white"
-                      >
-                        MAGNITUDO
-                      </li>
-                      <li
-                        class="list-group-item border-0 text-center fw-bold fs-3 p-0"
-                        style="background-color: #c1272d; color: white"
-                      >
-                        7.1
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="row pb-1">
-                  <div class="col-sm-auto">
-                    <img width="40" src="./images/clock.png" />
-                  </div>
-                  <div class="col">
-                    <ul class="list-group">
-                      <li class="list-group-item border-0 fw-bold p-0">
-                        Waktu
-                      </li>
-                      <li
-                        class="list-group-item border-0 fw-bold fs-6 p-0"
-                        style="color: #c1272d"
-                      >
-                        2023-05-15 09:18:40 UTC
-                      </li>
-                      <li
-                        class="list-group-item border-0 fw-bold p-0 fst-italic"
-                      >
-                        1 Second ago
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="row pb-1">
-                  <div class="col-sm-auto">
-                    <img width="40" src="./images/star.png" />
-                  </div>
-                  <div class="col">
-                    <ul class="list-group">
-                      <li class="list-group-item border-0 fw-bold p-0">
-                        EPICENTER
-                      </li>
-                      <li
-                        class="list-group-item border-0 fw-bold fs-6 p-0"
-                        style="color: #c1272d"
-                      >
-                        -0.606, 119.152
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="row pb-1">
-                  <div class="col-sm-auto">
-                    <img width="40" src="./images/antenna.png" />
-                  </div>
-                  <div class="col">
-                    <ul class="list-group">
-                      <li class="list-group-item border-0 fw-bold p-0">
-                        KEDALAMAN
-                      </li>
-                      <li
-                        class="list-group-item border-0 fw-bold fs-6 p-0"
-                        style="color: #c1272d"
-                      >
-                        10 KM
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="card-footer p-0"
-                style="height: 150px; overflow: hidden"
-              >
-                <img height="300" src="./images/map.jpeg" />
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div class="row">
+        <div class="col" style="min-height: 300px" id="map"></div>
         <div
-          class="col-xl-3 col-lg-4 col-md-4 col-sm-3 mt-3 position-absolute end-0 pr-2"
-          style="z-index: 888; padding-top: 46px; width: 24rem"
+          class="col-sm-auto p-0"
+          style="background-color: aquamarine; width: 27rem"
         >
           <div class="card border border-warning">
+            <h5 class="text-center pt-2">15 Mei 2023, 16:20:00</h5>
+
             <div
               class="card-header"
               style="background-color: #c1272d; color: white"
@@ -246,11 +150,9 @@
                     }
                   }
                   .circle {
-                    background: yellow;
                     border-radius: 100px;
                     color: white;
                     height: 130px;
-                    font-weight: bold;
                     width: 130px;
                     display: table;
                     margin: 15px auto;
@@ -269,10 +171,46 @@
                     </svg>
                   </div>
                 </div>
+                <style>
+                  .base-timer {
+                    position: relative;
+                    height: 140px;
+                    width: 140px;
+                  }
+                  .base-timer__circle {
+                    fill: none;
+                    stroke: none;
+                  }
+
+                  /* The SVG path that displays the timer's progress */
+                  .base-timer__path-elapsed {
+                    stroke-width: 7px;
+                    stroke: grey;
+                  }
+                </style>
+                <!-- <div class="col base-timer">
+                  <svg class="base-timer__svg">
+                    <g class="base-timer__circle">
+                      <circle
+                        class="base-timer__path-elapsed"
+                        cx="0"
+                        cy="0"
+                        r="81"
+                      />
+                    </g>
+                  </svg>
+                  <span>
+                     Remaining time label 
+                  </span>
+                </div> -->
                 <div class="col">
                   <div
-                    class="circle text-center"
-                    style="font-size: 60pt; color: black"
+                    class="circle text-center in_1"
+                    style="
+                      font-size: 65pt;
+                      color: black;
+                      background-color: rgb(247, 248, 53);
+                    "
                   >
                     <p>VI</p>
                   </div>
@@ -289,106 +227,110 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="leaflet-control-container">
-          <div class="leaflet-top leaflet-left"></div>
-          <div class="leaflet-top leaflet-right">
+          <div class="card">
             <div
-              class="leaflet-control-layers leaflet-control"
-              aria-haspopup="true"
+              class="card-header text-center fs-6 fw-bold"
+              style="
+                border-bottom: none;
+                background-color: #c1272d;
+                color: white;
+              "
             >
-              <a
-                class="leaflet-control-layers-toggle"
-                href="http://202.90.199.209/rseew#"
-                title="Layers"
-                role="button"
-              ></a>
-              <section class="leaflet-control-layers-list">
-                <div class="leaflet-control-layers-base">
-                  <label
-                    ><span
-                      ><input
-                        type="radio"
-                        class="leaflet-control-layers-selector"
-                        name="leaflet-base-layers_70"
-                      /><span> Default Map</span></span
-                    ></label
-                  ><label
-                    ><span
-                      ><input
-                        type="radio"
-                        class="leaflet-control-layers-selector"
-                        name="leaflet-base-layers_70"
-                      /><span> OpenStreetMap</span></span
-                    ></label
-                  ><label
-                    ><span
-                      ><input
-                        type="radio"
-                        class="leaflet-control-layers-selector"
-                        name="leaflet-base-layers_70"
-                      /><span> mapbox</span></span
-                    ></label
-                  ><label
-                    ><span
-                      ><input
-                        type="radio"
-                        class="leaflet-control-layers-selector"
-                        name="leaflet-base-layers_70"
-                      /><span> Grayscale Map</span></span
-                    ></label
-                  ><label
-                    ><span
-                      ><input
-                        type="radio"
-                        class="leaflet-control-layers-selector"
-                        name="leaflet-base-layers_70"
-                      /><span> Streets Map</span></span
-                    ></label
-                  ><label
-                    ><span
-                      ><input
-                        type="radio"
-                        class="leaflet-control-layers-selector"
-                        name="leaflet-base-layers_70"
-                      /><span> Satelite Map</span></span
-                    ></label
-                  >
-                </div>
-                <div
-                  class="leaflet-control-layers-separator"
-                  style="display: none"
-                ></div>
-                <div class="leaflet-control-layers-overlays"></div>
-              </section>
+              PARAMETER GEMPABUMI
             </div>
-          </div>
-          <div class="leaflet-bottom leaflet-left"></div>
-          <div class="leaflet-bottom leaflet-right">
-            <div class="logo leaflet-control">
-              <img
-                style="
-                  position: absolute;
-                  right: 0px;
-                  bottom: 0px;
-                  width: 100px;
-                  margin-bottom: -60px;
-                "
-                src="./images/logors.png"
-              />
+            <div class="card-body">
+              <div class="row pb-1">
+                <div class="col-sm-auto">
+                  <img width="40" src="./images/heartbeat.png" />
+                </div>
+                <div class="col">
+                  <ul class="list-group" style="width: 110px">
+                    <li
+                      class="list-group-item border-0 fw-bold text-center p-0"
+                      style="background-color: #c1272d; color: white"
+                    >
+                      MAGNITUDO
+                    </li>
+                    <li
+                      class="list-group-item border-0 text-center fw-bold fs-3 p-0"
+                      style="background-color: #c1272d; color: white"
+                    >
+                      7.1
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row pb-1">
+                <div class="col-sm-auto">
+                  <img width="40" src="./images/clock.png" />
+                </div>
+                <div class="col">
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 fw-bold p-0">Waktu</li>
+                    <li
+                      class="list-group-item border-0 fw-bold fs-6 p-0"
+                      style="color: #c1272d"
+                    >
+                      2023-05-15 09:18:40 UTC
+                    </li>
+                    <li class="list-group-item border-0 fw-bold p-0 fst-italic">
+                      1 Second ago
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row pb-1">
+                <div class="col-sm-auto">
+                  <img width="40" src="./images/star.png" />
+                </div>
+                <div class="col">
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 fw-bold p-0">
+                      EPICENTER
+                    </li>
+                    <li
+                      class="list-group-item border-0 fw-bold fs-6 p-0"
+                      style="color: #c1272d"
+                    >
+                      -0.606, 119.152
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row pb-1">
+                <div class="col-sm-auto">
+                  <img width="40" src="./images/antenna.png" />
+                </div>
+                <div class="col">
+                  <ul class="list-group">
+                    <li class="list-group-item border-0 fw-bold p-0">
+                      KEDALAMAN
+                    </li>
+                    <li
+                      class="list-group-item border-0 fw-bold fs-6 p-0"
+                      style="color: #c1272d"
+                    >
+                      10 KM
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-footer p-0"
+              style="height: 150px; overflow: hidden"
+            >
+              <img height="300" src="./images/map.jpeg" />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div style="position: fixed; bottom: 10px; left: 10px; z-index: 1000">
+      <img style="width: 100px" src="./images/flg.png" />
+    </div>
 
     <script src="./js/bootstrap.bundle.min.js"></script>
-    <script
-      src="./js/leaflet-providers.min.js"
-      integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <script
       src="./js/bootstrap.min.js"
       integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
@@ -399,14 +341,20 @@
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
       crossorigin="anonymous"
     ></script>
-    <script
-      src="./js/socket.io.min.js"
-      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/axios.min.js"></script>
-    <!-- <script src="js/colorfilter.js"></script>  -->
-    <script src="./js/rseew.js"></script>
+    <script>
+      var map = L.map("map", {
+        center: [-6, 106],
+        zoom: 7,
+        zoomControl: false,
+      });
+      L.tileLayer(
+        "https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}",
+        {
+          attribution: false,
+          maxZoom: 13,
+        }
+      ).addTo(map);
+    </script>
     <script>
       var countdownNumberEl = document.getElementById("countdown-number");
       var countdown = 50;
