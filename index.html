@@ -31,17 +31,14 @@
   <body cz-shortcut-listen="true">
     <div class="container-fluid">
       <div class="row">
-        <div class="col" style="min-height: 300px" id="map"></div>
-        <div
-          class="col-sm-auto p-0"
-          style="background-color: aquamarine; width: 27rem"
-        >
-          <div class="card border border-warning">
-            <h5 class="text-center pt-2">15 Mei 2023, 16:20:00</h5>
+        <div class="col-md-8" style="min-height: 300px" id="map"></div>
+        <div class="col-md-4 p-0" style="background-color: aquamarine">
+          <div class="card border">
+            <h5 class="text-center pt-2" id="clock-tspan"></h5>
 
             <div
               class="card-header"
-              style="background-color: #c1272d; color: white"
+              style="background-color: #0033cb; color: white"
             >
               <div class="row p-0">
                 <div class="col">
@@ -53,13 +50,13 @@
                       <ul class="list-group">
                         <li
                           class="list-group-item border-0 fw-bold p-0"
-                          style="background-color: #c1272d; color: white"
+                          style="background-color: #0033cb; color: white"
                         >
                           LOKASI PENERIMA
                         </li>
                         <li
                           class="list-group-item border-0 fw-bold p-0 fst-italic"
-                          style="background-color: #c1272d; color: white"
+                          style="background-color: #0033cb; color: white"
                         >
                           -0.606, 119.152
                         </li>
@@ -76,13 +73,13 @@
                       <ul class="list-group">
                         <li
                           class="list-group-item border-0 fw-bold p-0"
-                          style="background-color: #c1272d; color: white"
+                          style="background-color: #0033cb; color: white"
                         >
                           JARAK EPICENTER
                         </li>
                         <li
                           class="list-group-item border-0 fw-bold p-0 fst-italic"
-                          style="background-color: #c1272d; color: white"
+                          style="background-color: #0033cb; color: white"
                         >
                           10 KM
                         </li>
@@ -93,234 +90,177 @@
               </div>
             </div>
             <div class="card-body">
-              <div class="row fw-bold fs-6 text-center">
-                <div class="col">WAKTU TIBA</div>
-                <div class="col">INTENSITAS</div>
-              </div>
-              <div class="row">
-                <style>
-                  #countdown {
-                    position: relative;
-                    margin: auto;
-                    height: 160px;
-                    width: 160px;
-                    text-align: center;
-                  }
-
-                  #countdown-number {
-                    color: #c1272d;
-                    display: inline-block;
-                    line-height: 160px;
-                  }
-
-                  svg {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    width: 160px;
-                    height: 160px;
-                    transform: rotateY(-180deg) rotateZ(-90deg);
-                  }
-
-                  svg circle.cr {
-                    stroke-dasharray: 440px;
-                    stroke-dashoffset: 0px;
-                    stroke-linecap: round;
-                    stroke-width: 8px;
-                    stroke: #c1272d;
-                    fill: none;
-                    animation: countdown 50s linear infinite forwards;
-                  }
-
-                  svg circle.cr2 {
-                    stroke-dasharray: 440px;
-                    stroke-dashoffset: 0px;
-                    stroke-linecap: round;
-                    stroke-width: 8px;
-                    stroke: #fbb03b;
-                    fill: none;
-                  }
-
-                  @keyframes countdown {
-                    from {
-                      stroke-dashoffset: 0px;
-                    }
-                    to {
-                      stroke-dashoffset: 440px;
-                    }
-                  }
-                  .circle {
-                    border-radius: 100px;
-                    color: white;
-                    height: 130px;
-                    width: 130px;
-                    display: table;
-                    margin: 15px auto;
-                  }
-                  .circle p {
-                    vertical-align: middle;
-                    display: table-cell;
-                  }
-                </style>
+              <div class="row fw-bold fs-5 text-center">
                 <div class="col">
-                  <div id="countdown">
-                    <div id="countdown-number" style="font-size: 50pt"></div>
-                    <svg width="140" height="140">
-                      <circle class="cr2" r="63" cx="81" cy="81"></circle>
-                      <circle class="cr" r="63" cx="81" cy="81"></circle>
-                    </svg>
+                  <div class="row">
+                    <div class="col">WAKTU TIBA</div>
+                  </div>
+                  <div class="row">
+                    <div class="col fw-normal">
+                      <style>
+                        #countdown {
+                          position: relative;
+                          margin: auto;
+                          height: 160px;
+                          width: 160px;
+                          text-align: center;
+                        }
+
+                        #countdown-number {
+                          color: #c1272d;
+                          display: inline-block;
+                          line-height: 150px;
+                        }
+
+                        svg {
+                          position: absolute;
+                          top: 0;
+                          right: 0;
+                          width: 160px;
+                          height: 160px;
+                          transform: rotateY(-180deg) rotateZ(-90deg);
+                        }
+
+                        svg circle.cr {
+                          stroke-dasharray: 440px;
+                          stroke-dashoffset: 0px;
+                          stroke-linecap: round;
+                          stroke-width: 8px;
+                          stroke: #c1272d;
+                          fill: none;
+                          /* animation: countdown 10s linear forwards; */
+                        }
+
+                        svg circle.cr2 {
+                          stroke-dasharray: 440px;
+                          stroke-dashoffset: 0px;
+                          stroke-linecap: round;
+                          stroke-width: 8px;
+                          stroke: #fbb03b;
+                          fill: none;
+                        }
+
+                        @keyframes countdown {
+                          from {
+                            stroke-dashoffset: 0px;
+                          }
+                          to {
+                            stroke-dashoffset: 440px;
+                          }
+                        }
+                        .circle {
+                          border-radius: 100px;
+                          color: white;
+                          height: 130px;
+                          width: 130px;
+                          display: table;
+                          margin: 15px auto;
+                        }
+                        .circle p {
+                          vertical-align: middle;
+                          display: table-cell;
+                        }
+                      </style>
+                      <div id="countdown">
+                        <div
+                          id="countdown-number"
+                          style="font-size: 50pt"
+                        ></div>
+                        <svg width="140" height="140">
+                          <circle class="cr2" r="63" cx="81" cy="81"></circle>
+                          <circle
+                            id="cr"
+                            class="cr"
+                            r="63"
+                            cx="81"
+                            cy="81"
+                          ></circle>
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <style>
-                  .base-timer {
-                    position: relative;
-                    height: 140px;
-                    width: 140px;
-                  }
-                  .base-timer__circle {
-                    fill: none;
-                    stroke: none;
-                  }
-
-                  /* The SVG path that displays the timer's progress */
-                  .base-timer__path-elapsed {
-                    stroke-width: 7px;
-                    stroke: grey;
-                  }
-                </style>
-                <!-- <div class="col base-timer">
-                  <svg class="base-timer__svg">
-                    <g class="base-timer__circle">
-                      <circle
-                        class="base-timer__path-elapsed"
-                        cx="0"
-                        cy="0"
-                        r="81"
-                      />
-                    </g>
-                  </svg>
-                  <span>
-                     Remaining time label 
-                  </span>
-                </div> -->
                 <div class="col">
-                  <div
-                    class="circle text-center in_1"
-                    style="
-                      font-size: 65pt;
-                      color: black;
-                      background-color: rgb(247, 248, 53);
-                    "
-                  >
-                    <p>VI</p>
+                  <div class="row">
+                    <div class="col">INTENSITAS</div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div
+                        id="intensitas"
+                        class="circle fw-normal text-center"
+                        style="font-size: 60pt; color: black"
+                      >
+                        <p id="intr"></p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              class="card-footer fw-bold text-center"
-              style="background-color: #fbb03b; color: white"
-            >
+            <div class="card-footer fw-bold">
+              <div
+                class="row text-center"
+                style="background-color: #019900; color: white"
+              >
+                <div class="col p-1">SKALA MMI</div>
+              </div>
               <div class="row">
-                <div class="col">SKALA MMI</div>
-                <div class="col">GLOSSARY</div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div
-              class="card-header text-center fs-6 fw-bold"
-              style="
-                border-bottom: none;
-                background-color: #c1272d;
-                color: white;
-              "
-            >
-              PARAMETER GEMPABUMI
-            </div>
-            <div class="card-body">
-              <div class="row pb-1">
-                <div class="col-sm-auto">
-                  <img width="40" src="./images/heartbeat.png" />
-                </div>
-                <div class="col">
-                  <ul class="list-group" style="width: 110px">
-                    <li
-                      class="list-group-item border-0 fw-bold text-center p-0"
-                      style="background-color: #c1272d; color: white"
-                    >
-                      MAGNITUDO
-                    </li>
-                    <li
-                      class="list-group-item border-0 text-center fw-bold fs-3 p-0"
-                      style="background-color: #c1272d; color: white"
-                    >
-                      7.1
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row pb-1">
-                <div class="col-sm-auto">
-                  <img width="40" src="./images/clock.png" />
-                </div>
-                <div class="col">
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 fw-bold p-0">Waktu</li>
-                    <li
-                      class="list-group-item border-0 fw-bold fs-6 p-0"
-                      style="color: #c1272d"
-                    >
-                      2023-05-15 09:18:40 UTC
-                    </li>
-                    <li class="list-group-item border-0 fw-bold p-0 fst-italic">
-                      1 Second ago
-                    </li>
-                  </ul>
+                <div class="col p-0">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>I</td>
+                        <td class="">Tidak Dirasakan</td>
+                      </tr>
+                      <tr style="background-color: rgb(223, 230, 254)">
+                        <td>II</td>
+                        <td class="">Lemah</td>
+                      </tr>
+                      <tr style="background-color: rgb(130, 249, 251)">
+                        <td>III</td>
+                        <td class="">Lemah</td>
+                      </tr>
+                      <tr style="background-color: rgb(126, 251, 223)">
+                        <td>IV</td>
+                        <td class="">Ringan</td>
+                      </tr>
+                      <tr style="background-color: rgb(149, 248, 121)">
+                        <td>V</td>
+                        <td class="">Sedang</td>
+                      </tr>
+                      <tr style="background-color: rgb(247, 248, 53)">
+                        <td>VI</td>
+                        <td class="">Kuat</td>
+                      </tr>
+                      <tr style="background-color: rgb(253, 202, 44)">
+                        <td>VII</td>
+                        <td class="">Sangat Kuat</td>
+                      </tr>
+                      <tr style="background-color: rgb(255, 112, 30)">
+                        <td>VIII</td>
+                        <td class="">Sangat Kuat</td>
+                      </tr>
+                      <tr style="background-color: rgb(236, 37, 22)">
+                        <td class="text-white">IX</td>
+                        <td class="text-white">Sangat Kuat</td>
+                      </tr>
+                      <tr style="background-color: rgb(200, 30, 17)">
+                        <td class="text-white">X</td>
+                        <td class="text-white">Extreme</td>
+                      </tr>
+                      <tr style="background-color: #990000">
+                        <td class="text-white">XI</td>
+                        <td class="text-white">Extreme</td>
+                      </tr>
+                      <tr style="background-color: #4d0000">
+                        <td class="text-white">XII</td>
+                        <td class="text-white">Extreme</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              <div class="row pb-1">
-                <div class="col-sm-auto">
-                  <img width="40" src="./images/star.png" />
-                </div>
-                <div class="col">
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 fw-bold p-0">
-                      EPICENTER
-                    </li>
-                    <li
-                      class="list-group-item border-0 fw-bold fs-6 p-0"
-                      style="color: #c1272d"
-                    >
-                      -0.606, 119.152
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row pb-1">
-                <div class="col-sm-auto">
-                  <img width="40" src="./images/antenna.png" />
-                </div>
-                <div class="col">
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 fw-bold p-0">
-                      KEDALAMAN
-                    </li>
-                    <li
-                      class="list-group-item border-0 fw-bold fs-6 p-0"
-                      style="color: #c1272d"
-                    >
-                      10 KM
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div
-              class="card-footer p-0"
-              style="height: 150px; overflow: hidden"
-            >
-              <img height="300" src="./images/map.jpeg" />
             </div>
           </div>
         </div>
@@ -341,6 +281,7 @@
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
       crossorigin="anonymous"
     ></script>
+    <script src="./js/clock.js"></script>
     <script>
       var map = L.map("map", {
         center: [-6, 106],
@@ -356,16 +297,69 @@
       ).addTo(map);
     </script>
     <script>
+      var countdown = 10;
+      var intensitas = 9;
+
+      /*------------------*/
+
+      document.getElementById("cr").style.animation =
+        "countdown " + countdown + "s linear forwards";
       var countdownNumberEl = document.getElementById("countdown-number");
-      var countdown = 50;
-
       countdownNumberEl.textContent = countdown;
-
-      setInterval(function () {
-        countdown = --countdown <= 0 ? 10 : countdown;
-
+      var refreshID = setInterval(function () {
+        countdown = --countdown;
         countdownNumberEl.textContent = countdown;
+        if (countdown === 0) {
+          clearInterval(refreshID);
+        }
       }, 1000);
+
+      if (intensitas === 2) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(223, 230, 254)";
+        document.getElementById("intr").innerHTML = "II";
+      } else if (intensitas === 3) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(130, 249, 251)";
+        document.getElementById("intr").innerHTML = "III";
+      } else if (intensitas === 4) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(126, 251, 223)";
+        document.getElementById("intr").innerHTML = "IV";
+      } else if (intensitas === 5) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(149, 248, 121)";
+        document.getElementById("intr").innerHTML = "V";
+      } else if (intensitas === 6) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(247, 248, 53)";
+        document.getElementById("intr").innerHTML = "VI";
+      } else if (intensitas === 7) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(253, 202, 44)";
+        document.getElementById("intr").innerHTML = "VII";
+      } else if (intensitas === 8) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(255, 112, 30)";
+        document.getElementById("intr").innerHTML = "VIII";
+      } else if (intensitas === 9) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(236, 37, 22)";
+        document.getElementById("intr").innerHTML = "IX";
+      } else if (intensitas === 10) {
+        document.getElementById("intensitas").style.backgroundColor =
+          "rgb(200, 30, 17)";
+        document.getElementById("intr").innerHTML = "X";
+      } else if (intensitas === 11) {
+        document.getElementById("intensitas").style.backgroundColor = "#990000";
+        document.getElementById("intr").innerHTML = "XI";
+      } else if (intensitas === 12) {
+        document.getElementById("intensitas").style.backgroundColor = "#4d0000";
+        document.getElementById("intr").innerHTML = "XII";
+      } else {
+        document.getElementById("intensitas").style.backgroundColor = "";
+        document.getElementById("intr").innerHTML = "I";
+      }
     </script>
   </body>
 </html>
